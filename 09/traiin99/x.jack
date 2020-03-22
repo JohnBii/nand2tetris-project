@@ -1,0 +1,18 @@
+method void moveLeft() {
+        if (x > 4)
+        {
+            do Screen.setColor(true);
+            do Screen.drawLine(x - 1, y, x - 5, y + 4);
+            do Screen.setColor(false);
+            do Screen.drawLine(x, y, x + 4, y + 4);
+        }
+        return;
+    }
+
+    method void moveLeft() {
+        do erasePlane();
+        let x = x - 1;
+        if (x < 4) { let x = 4; }
+        do drawPlane();
+        return;
+    }

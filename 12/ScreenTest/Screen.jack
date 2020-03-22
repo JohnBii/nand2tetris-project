@@ -1,0 +1,227 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Screen.jack
+
+/**
+ * A library of functions for displaying graphics on the screen.
+ * The Hack physical screen consists of 512 rows (indexed 0..511, top to bottom)
+ * of 256 pixels each (indexed 0..255, left to right). The top left pixel on 
+ * the screen is indexed (0,0).
+ */
+class Screen {
+    static boolean color;
+    static Array twoToThe;
+
+    /** Initializes the Screen. */
+    function void init() {
+        var int n, i;
+        
+        let n = 1;
+        let i = 0;
+        let color = true;
+        let twoToThe = Array.new(16);
+        while (i < 16) {
+            let twoToThe[i] = n;
+            let i = i + 1;
+            let n = n + n;
+        }
+        return;
+    }
+
+    /** Erases the entire screen. */
+    function void clearScreen() {
+        var Array location;
+
+        let location = 16384;
+        while (location < 24576) {
+            let location[0] = 0;
+            let location = location + 1;
+        }
+        return;
+    }
+
+    /** Sets the current color, to be used for all subsequent drawXXX commands.
+     *  Black is represented by true, white by false. */
+    function void setColor(boolean b) {
+        let color = b;
+        return;
+    }
+
+    /** Draws the (x,y) pixel, using the current color. */
+    function void drawPixel(int x, int y) {
+        var int n, c;
+        var Array location;
+
+        let location = 16384 + (y * 32) + (x / 16);
+        let c = x - ((x / 16) * 16);
+        let n = 1;
+        while (c > 0) {
+            let n = n * 2;
+            let c = c - 1;
+        }
+        
+        if (color) {
+            let location[0] = location[0] | n;
+        }
+        else {
+            let location[0] = location[0] & ~n;
+        }
+
+        return;
+    }
+
+    function void drawHorizotalLine(int x1, int x2, int y) {
+        var Array location;
+        var int n1, n2, m1, m2, c, temp;
+
+        let n1 = x1 / 16;
+        let m1 = x1 - (n1 * 16);
+        let n2 = x2 / 16;
+        let m2 = x2 - (n2 * 16);
+        let c = 0;
+        let location = 16384 + (y * 32) + n1;
+
+        if (color) {
+            /** black line */
+            /** if length of line less than 16 */
+            if (n1 = n2) {
+                let temp = twoToThe[m2] + (twoToThe[m2] - twoToThe[m1]);
+                let location[0] = location[0] | temp;
+                return;
+            }
+
+            /** the first unit in line */
+            let temp = ~(twoToThe[m1] - 1);
+            let location[0] = location[0] | temp;
+            let location = location + 1;
+
+            /** middle units in line */
+            let temp = n2 - n1 - 1;
+            while (c < temp) {
+                let location[c] = -1;
+                let c = c + 1;
+            }
+            let location = location + temp;
+
+            /** last unit in line */
+            let temp = twoToThe[m2] - 1 + twoToThe[m2];
+            let location[0] = location[0] | temp;
+        }
+        else {
+            /** white line */
+            /** if length of line less than 16 */
+            if (n1 = n2) {
+                let temp = twoToThe[m2] + (twoToThe[m2] - twoToThe[m1]);
+                let location[0] = location[0] & ~temp;                
+                return;
+            }
+
+            /** the first unit in line */
+            let temp = twoToThe[m1] - 1;
+            let location[0] = location[0] & temp;            
+            let location = location + 1;
+
+            /** middle units in line */
+            let temp = n2 - n1 - 1;
+            while (c < temp) {
+                let location[c] = 0;
+                let c = c + 1;
+            }
+            let location = location + temp;
+
+            /** last unit in line */
+            let temp = twoToThe[m2] - 1 + twoToThe[m2];
+            let location[0] = location[0] & ~temp;            
+        }        
+        return;
+    }
+
+    /** Draws a line from pixel (x1,y1) to pixel (x2,y2), using the current color. */
+    function void drawLine(int x1, int y1, int x2, int y2) {
+        var int dx, dy, adyMinusbdx, a, b, sa, sb;
+
+        let dx = x2 - x1;
+        let dy = y2 - y1;
+        let adyMinusbdx = 0;
+        let a = 0;
+        let b = 0;
+
+        if (dx < 0) {
+            let sa = -1;
+            let dx = -dx;
+        }
+        else {
+            let sa = 1;
+        }
+        if (dy < 0) {
+            let sb = -1;
+            let dy = -dy;
+        }
+        else {
+            let sb = 1;
+        }
+
+        if (dy = 0) {
+            if (sa < 0) {
+                do Screen.drawHorizotalLine(x2, x1, y1);
+            }
+            else {
+                do Screen.drawHorizotalLine(x1, x2, y1);
+            }
+        }
+        else {
+            while (a < dx | (a = dx) & ((b < dy) | (b = dy))) {
+                do Screen.drawPixel(x1 + (sa * a), y1 + (sb * b));
+                if (adyMinusbdx < 0) {
+                    let a = a + 1;
+                    let adyMinusbdx = adyMinusbdx + dy;
+                }
+                else {
+                    let b = b + 1;
+                    let adyMinusbdx = adyMinusbdx - dx;
+                }
+            }
+        }
+        return;
+    }
+
+    /** Draws a filled rectangle whose top left corner is (x1, y1)
+     * and bottom right corner is (x2,y2), using the current color. */
+    function void drawRectangle(int x1, int y1, int x2, int y2) {
+        var int dy;
+
+        if (y2 - y1 = 0 | (x2 - x1 = 0)) {
+            do Sys.error(20);
+        }
+
+        if (y2 - y1 > 0) {
+            let dy = 1;
+        }
+        else {
+            let dy = -1;
+        }
+
+        while (~(y1 = y2)) {
+            do Screen.drawLine(x1, y1, x2, y1);
+            let y1 = y1 + dy;
+        }
+        return;
+    }
+
+    /** Draws a filled circle of radius r<=181 around (x,y), using the current color. */
+    function void drawCircle(int x, int y, int r) {
+        var int dy, temp;
+        if (r > 181 | (r < 1)) {
+            do Sys.error(21);
+        }
+        
+        let dy = -r;
+        while (~(dy = r)) {
+            let temp = Math.sqrt(r * r - (dy * dy));
+            do Screen.drawLine(x - temp, y + dy, x + temp, y + dy);
+            let dy = dy + 1;
+        }
+        return;
+    }
+}

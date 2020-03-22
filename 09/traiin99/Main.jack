@@ -1,0 +1,9 @@
+class Main {
+    function void main() {
+        var Train99 game;
+        let game = Train99.new();
+        do game.run();
+        do game.dispose();
+        return;
+    }
+}

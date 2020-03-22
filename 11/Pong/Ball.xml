@@ -1,0 +1,1859 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> name=Ball(unrecorded) </identifier>
+  <symbol> { </symbol>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> name=x kind=field type=int index=0 </identifier>
+    <symbol> , </symbol>
+    <identifier> name=y kind=field type=int index=1 </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> name=lengthx kind=field type=int index=2 </identifier>
+    <symbol> , </symbol>
+    <identifier> name=lengthy kind=field type=int index=3 </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> name=d kind=field type=int index=4 </identifier>
+    <symbol> , </symbol>
+    <identifier> name=straightD kind=field type=int index=5 </identifier>
+    <symbol> , </symbol>
+    <identifier> name=diagonalD kind=field type=int index=6 </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> boolean </keyword>
+    <identifier> name=invert kind=field type=boolean index=7 </identifier>
+    <symbol> , </symbol>
+    <identifier> name=positivex kind=field type=boolean index=8 </identifier>
+    <symbol> , </symbol>
+    <identifier> name=positivey kind=field type=boolean index=9 </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> name=leftWall kind=field type=int index=10 </identifier>
+    <symbol> , </symbol>
+    <identifier> name=rightWall kind=field type=int index=11 </identifier>
+    <symbol> , </symbol>
+    <identifier> name=topWall kind=field type=int index=12 </identifier>
+    <symbol> , </symbol>
+    <identifier> name=bottomWall kind=field type=int index=13 </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> name=wall kind=field type=int index=14 </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <subroutineDec>
+    <keyword> constructor </keyword>
+    <identifier> name=Ball(unrecorded) </identifier>
+    <identifier> name=new(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+      <keyword> int </keyword>
+      <identifier> name=Ax kind=arg type=int index=0 </identifier>
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> name=Ay kind=arg type=int index=1 </identifier>
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> name=AleftWall kind=arg type=int index=2 </identifier>
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> name=ArightWall kind=arg type=int index=3 </identifier>
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> name=AtopWall kind=arg type=int index=4 </identifier>
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> name=AbottomWall kind=arg type=int index=5 </identifier>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statementList>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=x kind=field type=int index=0 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=Ax kind=arg type=int index=0 </identifier>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=y kind=field type=int index=1 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=Ay kind=arg type=int index=1 </identifier>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=leftWall kind=field type=int index=10 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=AleftWall kind=arg type=int index=2 </identifier>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=rightWall kind=field type=int index=11 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=ArightWall kind=arg type=int index=3 </identifier>
+            </term>
+            <symbol> - </symbol>
+            <term>
+              <integerConstant> 6 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=topWall kind=field type=int index=12 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=AtopWall kind=arg type=int index=4 </identifier>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=bottomWall kind=field type=int index=13 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=AbottomWall kind=arg type=int index=5 </identifier>
+            </term>
+            <symbol> - </symbol>
+            <term>
+              <integerConstant> 6 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=wall kind=field type=int index=14 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 0 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=show(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <expression>
+            <term>
+              <keyword> this </keyword>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> name=dispose(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statementList>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=Memory(unrecorded) </identifier>
+          <symbol> . </symbol>
+          <identifier> name=deAlloc(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <keyword> this </keyword>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> name=show(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statementList>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=Screen(unrecorded) </identifier>
+          <symbol> . </symbol>
+          <identifier> name=setColor(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <keyword> true </keyword>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=draw(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> name=hide(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statementList>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=Screen(unrecorded) </identifier>
+          <symbol> . </symbol>
+          <identifier> name=setColor(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <keyword> false </keyword>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=draw(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> name=draw(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statementList>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=Screen(unrecorded) </identifier>
+          <symbol> . </symbol>
+          <identifier> name=drawRectangle(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <identifier> name=x kind=field type=int index=0 </identifier>
+              </term>
+            </expression>
+            <symbol> , </symbol>
+            <expression>
+              <term>
+                <identifier> name=y kind=field type=int index=1 </identifier>
+              </term>
+            </expression>
+            <symbol> , </symbol>
+            <expression>
+              <term>
+                <identifier> name=x kind=field type=int index=0 </identifier>
+              </term>
+              <symbol> + </symbol>
+              <term>
+                <integerConstant> 5 </integerConstant>
+              </term>
+            </expression>
+            <symbol> , </symbol>
+            <expression>
+              <term>
+                <identifier> name=y kind=field type=int index=1 </identifier>
+              </term>
+              <symbol> + </symbol>
+              <term>
+                <integerConstant> 5 </integerConstant>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> int </keyword>
+    <identifier> name=getLeft(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statementList>
+        <returnStatement>
+          <keyword> return </keyword>
+          <expression>
+            <term>
+              <identifier> name=x kind=field type=int index=0 </identifier>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> int </keyword>
+    <identifier> name=getRight(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statementList>
+        <returnStatement>
+          <keyword> return </keyword>
+          <expression>
+            <term>
+              <identifier> name=x kind=field type=int index=0 </identifier>
+            </term>
+            <symbol> + </symbol>
+            <term>
+              <integerConstant> 5 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> name=setDestination(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+      <keyword> int </keyword>
+      <identifier> name=destx kind=arg type=int index=1 </identifier>
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> name=desty kind=arg type=int index=2 </identifier>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <keyword> int </keyword>
+        <identifier> name=dx kind=var type=int index=0 </identifier>
+        <symbol> , </symbol>
+        <identifier> name=dy kind=var type=int index=1 </identifier>
+        <symbol> , </symbol>
+        <identifier> name=temp kind=var type=int index=2 </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <statementList>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=lengthx kind=field type=int index=2 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=destx kind=arg type=int index=1 </identifier>
+            </term>
+            <symbol> - </symbol>
+            <term>
+              <identifier> name=x kind=field type=int index=0 </identifier>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=lengthy kind=field type=int index=3 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=desty kind=arg type=int index=2 </identifier>
+            </term>
+            <symbol> - </symbol>
+            <term>
+              <identifier> name=y kind=field type=int index=1 </identifier>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=dx kind=var type=int index=0 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=Math(unrecorded) </identifier>
+              <symbol> . </symbol>
+              <identifier> name=abs(unrecorded) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <identifier> name=lengthx kind=field type=int index=2 </identifier>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=dy kind=var type=int index=1 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=Math(unrecorded) </identifier>
+              <symbol> . </symbol>
+              <identifier> name=abs(unrecorded) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <identifier> name=lengthy kind=field type=int index=3 </identifier>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=invert kind=field type=boolean index=7 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <identifier> name=dx kind=var type=int index=0 </identifier>
+                </term>
+                <symbol> &lt; </symbol>
+                <term>
+                  <identifier> name=dy kind=var type=int index=1 </identifier>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <ifStatement>
+          <keyword> if </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <identifier> name=invert kind=field type=boolean index=7 </identifier>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statementList>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=temp kind=var type=int index=2 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=dx kind=var type=int index=0 </identifier>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=dx kind=var type=int index=0 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=dy kind=var type=int index=1 </identifier>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=dy kind=var type=int index=1 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=temp kind=var type=int index=2 </identifier>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=positivex kind=field type=boolean index=8 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=y kind=field type=int index=1 </identifier>
+                    </term>
+                    <symbol> &lt; </symbol>
+                    <term>
+                      <identifier> name=desty kind=arg type=int index=2 </identifier>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=positivey kind=field type=boolean index=9 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=x kind=field type=int index=0 </identifier>
+                    </term>
+                    <symbol> &lt; </symbol>
+                    <term>
+                      <identifier> name=destx kind=arg type=int index=1 </identifier>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+          </statementList>
+          <symbol> } </symbol>
+          <keyword> else </keyword>
+          <symbol> { </symbol>
+          <statementList>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=positivex kind=field type=boolean index=8 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=x kind=field type=int index=0 </identifier>
+                    </term>
+                    <symbol> &lt; </symbol>
+                    <term>
+                      <identifier> name=destx kind=arg type=int index=1 </identifier>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=positivey kind=field type=boolean index=9 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=y kind=field type=int index=1 </identifier>
+                    </term>
+                    <symbol> &lt; </symbol>
+                    <term>
+                      <identifier> name=desty kind=arg type=int index=2 </identifier>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+          </statementList>
+          <symbol> } </symbol>
+        </ifStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=d kind=field type=int index=4 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <integerConstant> 2 </integerConstant>
+                </term>
+                <symbol> * </symbol>
+                <term>
+                  <identifier> name=dy kind=var type=int index=1 </identifier>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+            </term>
+            <symbol> - </symbol>
+            <term>
+              <identifier> name=dx kind=var type=int index=0 </identifier>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=straightD kind=field type=int index=5 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 2 </integerConstant>
+            </term>
+            <symbol> * </symbol>
+            <term>
+              <identifier> name=dy kind=var type=int index=1 </identifier>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=diagonalD kind=field type=int index=6 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 2 </integerConstant>
+            </term>
+            <symbol> * </symbol>
+            <term>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <identifier> name=dy kind=var type=int index=1 </identifier>
+                </term>
+                <symbol> - </symbol>
+                <term>
+                  <identifier> name=dx kind=var type=int index=0 </identifier>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> int </keyword>
+    <identifier> name=move(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statementList>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=hide(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <ifStatement>
+          <keyword> if </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <identifier> name=d kind=field type=int index=4 </identifier>
+            </term>
+            <symbol> &lt; </symbol>
+            <term>
+              <integerConstant> 0 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statementList>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=d kind=field type=int index=4 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=d kind=field type=int index=4 </identifier>
+                </term>
+                <symbol> + </symbol>
+                <term>
+                  <identifier> name=straightD kind=field type=int index=5 </identifier>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+          </statementList>
+          <symbol> } </symbol>
+          <keyword> else </keyword>
+          <symbol> { </symbol>
+          <statementList>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=d kind=field type=int index=4 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=d kind=field type=int index=4 </identifier>
+                </term>
+                <symbol> + </symbol>
+                <term>
+                  <identifier> name=diagonalD kind=field type=int index=6 </identifier>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <ifStatement>
+              <keyword> if </keyword>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <identifier> name=positivey kind=field type=boolean index=9 </identifier>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+              <symbol> { </symbol>
+              <statementList>
+                <ifStatement>
+                  <keyword> if </keyword>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=invert kind=field type=boolean index=7 </identifier>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                  <symbol> { </symbol>
+                  <statementList>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> name=x kind=field type=int index=0 </identifier>
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <identifier> name=x kind=field type=int index=0 </identifier>
+                        </term>
+                        <symbol> + </symbol>
+                        <term>
+                          <integerConstant> 4 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                  </statementList>
+                  <symbol> } </symbol>
+                  <keyword> else </keyword>
+                  <symbol> { </symbol>
+                  <statementList>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> name=y kind=field type=int index=1 </identifier>
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <identifier> name=y kind=field type=int index=1 </identifier>
+                        </term>
+                        <symbol> + </symbol>
+                        <term>
+                          <integerConstant> 4 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                  </statementList>
+                  <symbol> } </symbol>
+                </ifStatement>
+              </statementList>
+              <symbol> } </symbol>
+              <keyword> else </keyword>
+              <symbol> { </symbol>
+              <statementList>
+                <ifStatement>
+                  <keyword> if </keyword>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=invert kind=field type=boolean index=7 </identifier>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                  <symbol> { </symbol>
+                  <statementList>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> name=x kind=field type=int index=0 </identifier>
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <identifier> name=x kind=field type=int index=0 </identifier>
+                        </term>
+                        <symbol> - </symbol>
+                        <term>
+                          <integerConstant> 4 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                  </statementList>
+                  <symbol> } </symbol>
+                  <keyword> else </keyword>
+                  <symbol> { </symbol>
+                  <statementList>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> name=y kind=field type=int index=1 </identifier>
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <identifier> name=y kind=field type=int index=1 </identifier>
+                        </term>
+                        <symbol> - </symbol>
+                        <term>
+                          <integerConstant> 4 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                  </statementList>
+                  <symbol> } </symbol>
+                </ifStatement>
+              </statementList>
+              <symbol> } </symbol>
+            </ifStatement>
+          </statementList>
+          <symbol> } </symbol>
+        </ifStatement>
+        <ifStatement>
+          <keyword> if </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <identifier> name=positivex kind=field type=boolean index=8 </identifier>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statementList>
+            <ifStatement>
+              <keyword> if </keyword>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <identifier> name=invert kind=field type=boolean index=7 </identifier>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+              <symbol> { </symbol>
+              <statementList>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> name=y kind=field type=int index=1 </identifier>
+                  <symbol> = </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=y kind=field type=int index=1 </identifier>
+                    </term>
+                    <symbol> + </symbol>
+                    <term>
+                      <integerConstant> 4 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ; </symbol>
+                </letStatement>
+              </statementList>
+              <symbol> } </symbol>
+              <keyword> else </keyword>
+              <symbol> { </symbol>
+              <statementList>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> name=x kind=field type=int index=0 </identifier>
+                  <symbol> = </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=x kind=field type=int index=0 </identifier>
+                    </term>
+                    <symbol> + </symbol>
+                    <term>
+                      <integerConstant> 4 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ; </symbol>
+                </letStatement>
+              </statementList>
+              <symbol> } </symbol>
+            </ifStatement>
+          </statementList>
+          <symbol> } </symbol>
+          <keyword> else </keyword>
+          <symbol> { </symbol>
+          <statementList>
+            <ifStatement>
+              <keyword> if </keyword>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <identifier> name=invert kind=field type=boolean index=7 </identifier>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+              <symbol> { </symbol>
+              <statementList>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> name=y kind=field type=int index=1 </identifier>
+                  <symbol> = </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=y kind=field type=int index=1 </identifier>
+                    </term>
+                    <symbol> - </symbol>
+                    <term>
+                      <integerConstant> 4 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ; </symbol>
+                </letStatement>
+              </statementList>
+              <symbol> } </symbol>
+              <keyword> else </keyword>
+              <symbol> { </symbol>
+              <statementList>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> name=x kind=field type=int index=0 </identifier>
+                  <symbol> = </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=x kind=field type=int index=0 </identifier>
+                    </term>
+                    <symbol> - </symbol>
+                    <term>
+                      <integerConstant> 4 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ; </symbol>
+                </letStatement>
+              </statementList>
+              <symbol> } </symbol>
+            </ifStatement>
+          </statementList>
+          <symbol> } </symbol>
+        </ifStatement>
+        <ifStatement>
+          <keyword> if </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <symbol> ~ </symbol>
+              <term>
+                <symbol> ( </symbol>
+                <expression>
+                  <term>
+                    <identifier> name=x kind=field type=int index=0 </identifier>
+                  </term>
+                  <symbol> &gt; </symbol>
+                  <term>
+                    <identifier> name=leftWall kind=field type=int index=10 </identifier>
+                  </term>
+                </expression>
+                <symbol> ) </symbol>
+              </term>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statementList>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=wall kind=field type=int index=14 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <integerConstant> 1 </integerConstant>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=x kind=field type=int index=0 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=leftWall kind=field type=int index=10 </identifier>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+          </statementList>
+          <symbol> } </symbol>
+        </ifStatement>
+        <ifStatement>
+          <keyword> if </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <symbol> ~ </symbol>
+              <term>
+                <symbol> ( </symbol>
+                <expression>
+                  <term>
+                    <identifier> name=x kind=field type=int index=0 </identifier>
+                  </term>
+                  <symbol> &lt; </symbol>
+                  <term>
+                    <identifier> name=rightWall kind=field type=int index=11 </identifier>
+                  </term>
+                </expression>
+                <symbol> ) </symbol>
+              </term>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statementList>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=wall kind=field type=int index=14 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <integerConstant> 2 </integerConstant>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=x kind=field type=int index=0 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=rightWall kind=field type=int index=11 </identifier>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+          </statementList>
+          <symbol> } </symbol>
+        </ifStatement>
+        <ifStatement>
+          <keyword> if </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <symbol> ~ </symbol>
+              <term>
+                <symbol> ( </symbol>
+                <expression>
+                  <term>
+                    <identifier> name=y kind=field type=int index=1 </identifier>
+                  </term>
+                  <symbol> &gt; </symbol>
+                  <term>
+                    <identifier> name=topWall kind=field type=int index=12 </identifier>
+                  </term>
+                </expression>
+                <symbol> ) </symbol>
+              </term>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statementList>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=wall kind=field type=int index=14 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <integerConstant> 3 </integerConstant>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=y kind=field type=int index=1 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=topWall kind=field type=int index=12 </identifier>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+          </statementList>
+          <symbol> } </symbol>
+        </ifStatement>
+        <ifStatement>
+          <keyword> if </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <symbol> ~ </symbol>
+              <term>
+                <symbol> ( </symbol>
+                <expression>
+                  <term>
+                    <identifier> name=y kind=field type=int index=1 </identifier>
+                  </term>
+                  <symbol> &lt; </symbol>
+                  <term>
+                    <identifier> name=bottomWall kind=field type=int index=13 </identifier>
+                  </term>
+                </expression>
+                <symbol> ) </symbol>
+              </term>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statementList>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=wall kind=field type=int index=14 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <integerConstant> 4 </integerConstant>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=y kind=field type=int index=1 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=bottomWall kind=field type=int index=13 </identifier>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+          </statementList>
+          <symbol> } </symbol>
+        </ifStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=show(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <expression>
+            <term>
+              <identifier> name=wall kind=field type=int index=14 </identifier>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> name=bounce(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+      <keyword> int </keyword>
+      <identifier> name=bouncingDirection kind=arg type=int index=1 </identifier>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <keyword> int </keyword>
+        <identifier> name=newx kind=var type=int index=0 </identifier>
+        <symbol> , </symbol>
+        <identifier> name=newy kind=var type=int index=1 </identifier>
+        <symbol> , </symbol>
+        <identifier> name=divLengthx kind=var type=int index=2 </identifier>
+        <symbol> , </symbol>
+        <identifier> name=divLengthy kind=var type=int index=3 </identifier>
+        <symbol> , </symbol>
+        <identifier> name=factor kind=var type=int index=4 </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <statementList>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=divLengthx kind=var type=int index=2 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=lengthx kind=field type=int index=2 </identifier>
+            </term>
+            <symbol> / </symbol>
+            <term>
+              <integerConstant> 10 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=divLengthy kind=var type=int index=3 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=lengthy kind=field type=int index=3 </identifier>
+            </term>
+            <symbol> / </symbol>
+            <term>
+              <integerConstant> 10 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <ifStatement>
+          <keyword> if </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <identifier> name=bouncingDirection kind=arg type=int index=1 </identifier>
+            </term>
+            <symbol> = </symbol>
+            <term>
+              <integerConstant> 0 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statementList>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=factor kind=var type=int index=4 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <integerConstant> 10 </integerConstant>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+          </statementList>
+          <symbol> } </symbol>
+          <keyword> else </keyword>
+          <symbol> { </symbol>
+          <statementList>
+            <ifStatement>
+              <keyword> if </keyword>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <symbol> ~ </symbol>
+                          <term>
+                            <symbol> ( </symbol>
+                            <expression>
+                              <term>
+                                <identifier> name=lengthx kind=field type=int index=2 </identifier>
+                              </term>
+                              <symbol> &lt; </symbol>
+                              <term>
+                                <integerConstant> 0 </integerConstant>
+                              </term>
+                            </expression>
+                            <symbol> ) </symbol>
+                          </term>
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                    </term>
+                    <symbol> &amp; </symbol>
+                    <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <identifier> name=bouncingDirection kind=arg type=int index=1 </identifier>
+                        </term>
+                        <symbol> = </symbol>
+                        <term>
+                          <integerConstant> 1 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+                <symbol> | </symbol>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <identifier> name=lengthx kind=field type=int index=2 </identifier>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                          <integerConstant> 0 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                    </term>
+                    <symbol> &amp; </symbol>
+                    <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <identifier> name=bouncingDirection kind=arg type=int index=1 </identifier>
+                        </term>
+                        <symbol> = </symbol>
+                        <term>
+                          <symbol> ( </symbol>
+                          <expression>
+                            <term>
+                              <symbol> - </symbol>
+                              <term>
+                                <integerConstant> 1 </integerConstant>
+                              </term>
+                            </term>
+                          </expression>
+                          <symbol> ) </symbol>
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+              <symbol> { </symbol>
+              <statementList>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> name=factor kind=var type=int index=4 </identifier>
+                  <symbol> = </symbol>
+                  <expression>
+                    <term>
+                      <integerConstant> 20 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ; </symbol>
+                </letStatement>
+              </statementList>
+              <symbol> } </symbol>
+              <keyword> else </keyword>
+              <symbol> { </symbol>
+              <statementList>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> name=factor kind=var type=int index=4 </identifier>
+                  <symbol> = </symbol>
+                  <expression>
+                    <term>
+                      <integerConstant> 5 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ; </symbol>
+                </letStatement>
+              </statementList>
+              <symbol> } </symbol>
+            </ifStatement>
+          </statementList>
+          <symbol> } </symbol>
+        </ifStatement>
+        <ifStatement>
+          <keyword> if </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <identifier> name=wall kind=field type=int index=14 </identifier>
+            </term>
+            <symbol> = </symbol>
+            <term>
+              <integerConstant> 1 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statementList>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=newx kind=var type=int index=0 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <integerConstant> 506 </integerConstant>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=newy kind=var type=int index=1 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=divLengthy kind=var type=int index=3 </identifier>
+                    </term>
+                    <symbol> * </symbol>
+                    <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <symbol> - </symbol>
+                          <term>
+                            <integerConstant> 50 </integerConstant>
+                          </term>
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+                <symbol> / </symbol>
+                <term>
+                  <identifier> name=divLengthx kind=var type=int index=2 </identifier>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=newy kind=var type=int index=1 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=y kind=field type=int index=1 </identifier>
+                </term>
+                <symbol> + </symbol>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=newy kind=var type=int index=1 </identifier>
+                    </term>
+                    <symbol> * </symbol>
+                    <term>
+                      <identifier> name=factor kind=var type=int index=4 </identifier>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+          </statementList>
+          <symbol> } </symbol>
+          <keyword> else </keyword>
+          <symbol> { </symbol>
+          <statementList>
+            <ifStatement>
+              <keyword> if </keyword>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <identifier> name=wall kind=field type=int index=14 </identifier>
+                </term>
+                <symbol> = </symbol>
+                <term>
+                  <integerConstant> 2 </integerConstant>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+              <symbol> { </symbol>
+              <statementList>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> name=newx kind=var type=int index=0 </identifier>
+                  <symbol> = </symbol>
+                  <expression>
+                    <term>
+                      <integerConstant> 0 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> name=newy kind=var type=int index=1 </identifier>
+                  <symbol> = </symbol>
+                  <expression>
+                    <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <identifier> name=divLengthy kind=var type=int index=3 </identifier>
+                        </term>
+                        <symbol> * </symbol>
+                        <term>
+                          <integerConstant> 50 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                    </term>
+                    <symbol> / </symbol>
+                    <term>
+                      <identifier> name=divLengthx kind=var type=int index=2 </identifier>
+                    </term>
+                  </expression>
+                  <symbol> ; </symbol>
+                </letStatement>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> name=newy kind=var type=int index=1 </identifier>
+                  <symbol> = </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=y kind=field type=int index=1 </identifier>
+                    </term>
+                    <symbol> + </symbol>
+                    <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <identifier> name=newy kind=var type=int index=1 </identifier>
+                        </term>
+                        <symbol> * </symbol>
+                        <term>
+                          <identifier> name=factor kind=var type=int index=4 </identifier>
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                    </term>
+                  </expression>
+                  <symbol> ; </symbol>
+                </letStatement>
+              </statementList>
+              <symbol> } </symbol>
+              <keyword> else </keyword>
+              <symbol> { </symbol>
+              <statementList>
+                <ifStatement>
+                  <keyword> if </keyword>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=wall kind=field type=int index=14 </identifier>
+                    </term>
+                    <symbol> = </symbol>
+                    <term>
+                      <integerConstant> 3 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                  <symbol> { </symbol>
+                  <statementList>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> name=newy kind=var type=int index=1 </identifier>
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <integerConstant> 250 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> name=newx kind=var type=int index=0 </identifier>
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <symbol> ( </symbol>
+                          <expression>
+                            <term>
+                              <identifier> name=divLengthx kind=var type=int index=2 </identifier>
+                            </term>
+                            <symbol> * </symbol>
+                            <term>
+                              <symbol> ( </symbol>
+                              <expression>
+                                <term>
+                                  <symbol> - </symbol>
+                                  <term>
+                                    <integerConstant> 25 </integerConstant>
+                                  </term>
+                                </term>
+                              </expression>
+                              <symbol> ) </symbol>
+                            </term>
+                          </expression>
+                          <symbol> ) </symbol>
+                        </term>
+                        <symbol> / </symbol>
+                        <term>
+                          <identifier> name=divLengthy kind=var type=int index=3 </identifier>
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> name=newx kind=var type=int index=0 </identifier>
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <identifier> name=x kind=field type=int index=0 </identifier>
+                        </term>
+                        <symbol> + </symbol>
+                        <term>
+                          <symbol> ( </symbol>
+                          <expression>
+                            <term>
+                              <identifier> name=newx kind=var type=int index=0 </identifier>
+                            </term>
+                            <symbol> * </symbol>
+                            <term>
+                              <identifier> name=factor kind=var type=int index=4 </identifier>
+                            </term>
+                          </expression>
+                          <symbol> ) </symbol>
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                  </statementList>
+                  <symbol> } </symbol>
+                  <keyword> else </keyword>
+                  <symbol> { </symbol>
+                  <statementList>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> name=newy kind=var type=int index=1 </identifier>
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <integerConstant> 0 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> name=newx kind=var type=int index=0 </identifier>
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <symbol> ( </symbol>
+                          <expression>
+                            <term>
+                              <identifier> name=divLengthx kind=var type=int index=2 </identifier>
+                            </term>
+                            <symbol> * </symbol>
+                            <term>
+                              <integerConstant> 25 </integerConstant>
+                            </term>
+                          </expression>
+                          <symbol> ) </symbol>
+                        </term>
+                        <symbol> / </symbol>
+                        <term>
+                          <identifier> name=divLengthy kind=var type=int index=3 </identifier>
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> name=newx kind=var type=int index=0 </identifier>
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <identifier> name=x kind=field type=int index=0 </identifier>
+                        </term>
+                        <symbol> + </symbol>
+                        <term>
+                          <symbol> ( </symbol>
+                          <expression>
+                            <term>
+                              <identifier> name=newx kind=var type=int index=0 </identifier>
+                            </term>
+                            <symbol> * </symbol>
+                            <term>
+                              <identifier> name=factor kind=var type=int index=4 </identifier>
+                            </term>
+                          </expression>
+                          <symbol> ) </symbol>
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                  </statementList>
+                  <symbol> } </symbol>
+                </ifStatement>
+              </statementList>
+              <symbol> } </symbol>
+            </ifStatement>
+          </statementList>
+          <symbol> } </symbol>
+        </ifStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=setDestination(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <identifier> name=newx kind=var type=int index=0 </identifier>
+              </term>
+            </expression>
+            <symbol> , </symbol>
+            <expression>
+              <term>
+                <identifier> name=newy kind=var type=int index=1 </identifier>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

@@ -1,0 +1,8 @@
+class Meteorites {
+    field int rocknumber;
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+}

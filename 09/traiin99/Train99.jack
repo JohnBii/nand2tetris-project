@@ -1,0 +1,47 @@
+class Train99 {
+    field Plane plane;
+    field int direction;
+
+    constructor Train99 new() {
+        let plane = Plane.new(251, 124);
+
+        let direction = 0; // 方向变量存储飞机飞行的方向，
+                           // 0表示飞机不动，1表示向上飞，2表示向下飞，3表示向左飞，4表示向右飞
+        return this;
+    }
+
+
+    method void dispose() {
+        do plane.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void movePlane() {
+        if (direction = 1) { do plane.moveUp(); }
+        if (direction = 2) { do plane.moveDown(); }
+        if (direction = 3) { do plane.moveLeft(); }
+        if (direction = 4) { do plane.moveRight(); }
+        do Sys.wait(1); // 延迟下一个动作
+        return;
+    }
+    method void run() {
+        var boolean exit;
+        var char key;
+        let exit = false;
+
+        while (~exit) {
+            let key = Keyboard.keyPressed();
+            while (key = 0) {
+                let key = Keyboard.keyPressed();                
+            }
+            if (key = 81)  { let exit = true; }     // q key
+            if (key = 131) { let direction = 1; }   // up arrow
+            if (key = 133) { let direction = 2; }   // down arrow
+            if (key = 130) { let direction = 3; }   // left arrow
+            if (key = 132) { let direction = 4; }   // right arrow
+            do movePlane();
+        }
+        return;
+    }
+}

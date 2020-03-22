@@ -1,0 +1,70 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> name=Main(unrecorded) </identifier>
+  <symbol> { </symbol>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> name=main(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <identifier> name=SquareGame(unrecorded) </identifier>
+        <identifier> name=game kind=var type=SquareGame index=0 </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <statementList>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=game kind=var type=SquareGame index=0 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=SquareGame(unrecorded) </identifier>
+              <symbol> . </symbol>
+              <identifier> name=new(unrecorded) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+              </expressionList>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=game kind=var type=SquareGame index=0 </identifier>
+          <symbol> . </symbol>
+          <identifier> name=run(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=game kind=var type=SquareGame index=0 </identifier>
+          <symbol> . </symbol>
+          <identifier> name=dispose(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

@@ -1,0 +1,220 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> name=Main(unrecorded) </identifier>
+  <symbol> { </symbol>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> name=main(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <identifier> name=Array(unrecorded) </identifier>
+        <identifier> name=a kind=var type=Array index=0 </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <varDec>
+        <keyword> var </keyword>
+        <keyword> int </keyword>
+        <identifier> name=length kind=var type=int index=1 </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <varDec>
+        <keyword> var </keyword>
+        <keyword> int </keyword>
+        <identifier> name=i kind=var type=int index=2 </identifier>
+        <symbol> , </symbol>
+        <identifier> name=sum kind=var type=int index=3 </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <statementList>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=length kind=var type=int index=1 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=Keyboard(unrecorded) </identifier>
+              <symbol> . </symbol>
+              <identifier> name=readInt(unrecorded) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <stringConstant> How many numbers?  </stringConstant>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=a kind=var type=Array index=0 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=Array(unrecorded) </identifier>
+              <symbol> . </symbol>
+              <identifier> name=new(unrecorded) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <identifier> name=length kind=var type=int index=1 </identifier>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=i kind=var type=int index=2 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 0 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <whileStatement>
+          <keyword> while </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <identifier> name=i kind=var type=int index=2 </identifier>
+            </term>
+            <symbol> &lt; </symbol>
+            <term>
+              <identifier> name=length kind=var type=int index=1 </identifier>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statementList>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=a kind=var type=Array index=0 </identifier>
+              <symbol> [ </symbol>
+              <expression>
+                <term>
+                  <identifier> name=i kind=var type=int index=2 </identifier>
+                </term>
+              </expression>
+              <symbol> ] </symbol>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=Keyboard(unrecorded) </identifier>
+                  <symbol> . </symbol>
+                  <identifier> name=readInt(unrecorded) </identifier>
+                  <symbol> ( </symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <stringConstant> Enter a number:  </stringConstant>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=sum kind=var type=int index=3 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=sum kind=var type=int index=3 </identifier>
+                </term>
+                <symbol> + </symbol>
+                <term>
+                  <identifier> name=a kind=var type=Array index=0 </identifier>
+                  <symbol> [ </symbol>
+                  <expression>
+                    <term>
+                      <identifier> name=i kind=var type=int index=2 </identifier>
+                    </term>
+                  </expression>
+                  <symbol> ] </symbol>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> name=i kind=var type=int index=2 </identifier>
+              <symbol> = </symbol>
+              <expression>
+                <term>
+                  <identifier> name=i kind=var type=int index=2 </identifier>
+                </term>
+                <symbol> + </symbol>
+                <term>
+                  <integerConstant> 1 </integerConstant>
+                </term>
+              </expression>
+              <symbol> ; </symbol>
+            </letStatement>
+          </statementList>
+          <symbol> } </symbol>
+        </whileStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=Output(unrecorded) </identifier>
+          <symbol> . </symbol>
+          <identifier> name=printString(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <stringConstant> The average is  </stringConstant>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=Output(unrecorded) </identifier>
+          <symbol> . </symbol>
+          <identifier> name=printInt(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <identifier> name=sum kind=var type=int index=3 </identifier>
+              </term>
+              <symbol> / </symbol>
+              <term>
+                <identifier> name=length kind=var type=int index=1 </identifier>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

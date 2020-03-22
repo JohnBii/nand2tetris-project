@@ -1,0 +1,81 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> name=Main(unrecorded) </identifier>
+  <symbol> { </symbol>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> name=main(unrecorded) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <identifier> name=PongGame(unrecorded) </identifier>
+        <identifier> name=game kind=var type=PongGame index=0 </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <statementList>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=PongGame(unrecorded) </identifier>
+          <symbol> . </symbol>
+          <identifier> name=newInstance(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name=game kind=var type=PongGame index=0 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> name=PongGame(unrecorded) </identifier>
+              <symbol> . </symbol>
+              <identifier> name=getInstance(unrecorded) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+              </expressionList>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=game kind=var type=PongGame index=0 </identifier>
+          <symbol> . </symbol>
+          <identifier> name=run(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> name=game kind=var type=PongGame index=0 </identifier>
+          <symbol> . </symbol>
+          <identifier> name=dispose(unrecorded) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statementList>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

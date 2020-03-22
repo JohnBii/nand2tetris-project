@@ -1,0 +1,100 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Memory.jack
+
+/**
+ * This library provides two services: direct access to the computer's main
+ * memory (RAM), and allocation and recycling of memory blocks. The Hack RAM
+ * consists of 32,768 words, each holding a 16-bit binary number.
+ */ 
+class Memory {
+
+    static Array freeList;
+
+    /** Initializes the class. */
+    function void init() {
+        let freeList = 2048;
+        let freeList[0] = null;
+        let freeList[1] = 14333;
+
+        return;
+    }
+
+    /** Returns the RAM value at the given address. */
+    function int peek(int address) {
+        var Array memory;
+
+        let memory = 0;
+        return memory[address];
+    }
+
+    /** Sets the RAM value at the given address to the given value. */
+    function void poke(int address, int value) {
+        var Array memory;
+
+        let memory = 0;
+        let memory[address] = value;
+        return;
+    }
+
+    /** Finds an available RAM block of the given size and returns
+     *  a reference to its base address. */
+    function int alloc(int size) {
+        var Array segment;
+        var Array block;
+
+        let segment = freeList;
+        while (segment[1] < (size + 2)) {
+            if (segment[0] = null) {
+                return false;
+            }
+            else {
+                let segment = segment[0];
+            }
+        }
+
+        let block = segment + 2 + (segment[1] - size - 2);
+        let block[0] = -size;
+        let block[1] = size;
+
+        let segment[1] = segment[1] - size - 2;
+
+        return block + 2;
+    }
+
+    /** De-allocates the given object (cast as an array) by making
+     *  it available for future allocations. */
+    function void deAlloc(Array o) {
+        var Array segment;
+        var Array segmentNext;
+
+        let segment = freeList;
+        let segmentNext = segment[0];
+        let o = o - 2;
+
+        if (o[0] > 0 | ~(o[0] = -o[1])) {
+            do Sys.error(8);
+        }
+        
+        while (segmentNext < o & ~(segmentNext = null)) {
+            let segment = segmentNext;
+            let segmentNext = segment[0];
+        }
+
+        let o[0] = segmentNext;
+        let segment[0] = o;
+
+        if (o + 2 + o[1] = segmentNext) {
+            let o[1] = o[1] + 2 + segmentNext[1];
+            let o[0] = segmentNext[0];
+        }
+
+        if (segment + 2 + segment[1] = o) {
+            let segment[1] = segment[1] + 2 + o[1]; 
+            let segment[0] = o[0];       
+        }
+        
+        return;
+    }    
+}

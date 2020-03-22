@@ -1,0 +1,72 @@
+class Plane {
+    field int x, y; // 三角形飞机的顶端坐标
+
+    constructor Plane new(int Ax, int Ay) {
+        let x = Ax;
+        let y = Ay;
+        do drawPlane();
+        return this;
+    }
+
+method void drawPlane() {
+        do Screen.setColor(true);
+        do Screen.drawPixel(x, y);
+        do Screen.drawLine(x - 1, y + 1, x + 1, y + 1);
+        do Screen.drawLine(x - 2, y + 2, x + 2, y + 2);
+        do Screen.drawLine(x - 3, y + 3, x + 3, y + 3);
+        do Screen.drawLine(x - 4, y + 4, x + 4, y + 4);
+        return;
+    }
+
+    method void moveUp() {
+        if (y > 0) {
+            let y = y - 1;
+            do Screen.setColor(true);
+            do Screen.drawLine(x, y, x - 4, y + 4);
+            do Screen.drawLine(x + 1, y + 1, x + 4, y + 4);
+            do Screen.setColor(false);
+            do Screen.drawLine(x - 4, y + 5, x + 4, y + 5);
+        }
+        return;
+    }
+    
+    method void moveDown() {
+        if (y < 250) { 
+            do Screen.setColor(false); // 是moveUp的逆过程
+            do Screen.drawLine(x, y, x - 4, y + 4);
+            do Screen.drawLine(x + 1, y + 1, x + 4, y + 4);
+            do Screen.setColor(true);
+            do Screen.drawLine(x - 4, y + 5, x + 4, y + 5);
+            let y = y + 1;
+        }
+        return;
+    }
+
+    method void moveLeft() {
+        if (x > 4) {
+            do Screen.setColor(true);
+            do Screen.drawLine(x - 1, y, x - 5, y + 4);
+            do Screen.setColor(false);
+            do Screen.drawLine(x, y, x + 4, y + 4);
+            let x = x - 1;
+        }
+        return;
+    }
+
+    method void moveRight() {
+        if (x < 507)
+        {
+            let x = x + 1; // 是moveLeft的逆过程
+            do Screen.setColor(false);
+            do Screen.drawLine(x - 1, y, x - 5, y + 4);
+            do Screen.setColor(true);
+            do Screen.drawLine(x, y, x + 4, y + 4);
+        }
+        return;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+}
